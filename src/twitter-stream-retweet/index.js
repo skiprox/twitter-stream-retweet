@@ -37,6 +37,10 @@ class TwitterStreamRetweet {
 			this.filterTweet(tweet, this.logTweet);
 		});
 	}
+	streamAndRetweet() {
+		this.getStream();
+
+	}
 	filterTweet(tweet, callback) {
 		for (let string of this.phrases) {
 			if (tweet['text'].toLowerCase().indexOf(string) !== -1) {
@@ -78,29 +82,29 @@ module.exports = TwitterStreamRetweet;
 // 	}.bind(this));
 // };
 
-// EatShitBot.prototype.streamAndRetweet = function(string) {
-// 	this.stream = this.twitBot.stream('statuses/filter', {
-// 		track: string
-// 	});
-// 	this.stream.on('tweet', function(tweet) {
-// 		if (tweet["text"].toLowerCase().indexOf(string.toLowerCase()) !== -1) {
-// 			this.retweet(tweet.id_str);
-// 		}
-// 	}.bind(this));
-// 	this.stream.on('disconnect', function(disconnectMessage) {
-// 		console.log('disconnected:', disconnectMessage);
-// 		this.streamAndRetweet(string);
-// 	}.bind(this));
-// 	this.stream.on('warning', function(warning) {
-// 		console.log('warning:', warning);
-// 	}.bind(this));
-// 	this.stream.on('reconnect', function(request, response, connectInterval) {
-// 		console.log('attemping to reconnect, status message:', response.statusMessage);
-// 		request.on('error', function(error) {
-// 			console.log('error:', error);
-// 		});
-// 	}.bind(this));
-// };
+EatShitBot.prototype.streamAndRetweet = function(string) {
+	this.stream = this.twitBot.stream('statuses/filter', {
+		track: string
+	});
+	this.stream.on('tweet', function(tweet) {
+		if (tweet["text"].toLowerCase().indexOf(string.toLowerCase()) !== -1) {
+			this.retweet(tweet.id_str);
+		}
+	}.bind(this));
+	this.stream.on('disconnect', function(disconnectMessage) {
+		console.log('disconnected:', disconnectMessage);
+		this.streamAndRetweet(string);
+	}.bind(this));
+	this.stream.on('warning', function(warning) {
+		console.log('warning:', warning);
+	}.bind(this));
+	this.stream.on('reconnect', function(request, response, connectInterval) {
+		console.log('attemping to reconnect, status message:', response.statusMessage);
+		request.on('error', function(error) {
+			console.log('error:', error);
+		});
+	}.bind(this));
+};
 
 // EatShitBot.prototype.retweet = function(tweetId) {
 // 	this.twitBot.post('statuses/retweet/' + tweetId, function(error, tweet, response) {
