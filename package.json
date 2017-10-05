@@ -8,7 +8,7 @@
     "eat-shit-bot": "bin/eat-shit-bot.js"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "node test/index.js"
   },
   "dependencies": {
     "lodash": "latest",
