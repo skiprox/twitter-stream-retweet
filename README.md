@@ -1,4 +1,4 @@
-# eat-shit-bot
+# Twitter Stream/Retweet
 > Lmao
 
 This is a twitter bot to retweet people who use a certain phrase. Currently, that phrase is some variation of "applying to grad school".
@@ -25,11 +25,11 @@ To run this on a server (I'm running on digital ocean), you'll want to daemonize
 
 ```
 [Unit]
-Description=Job that runs the twitter eat shit bot
+Description=Job that runs the twitter stream/retweet bot
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/nodejs /root/whatever/eat-shit-bot/app.js
+ExecStart=/usr/bin/nodejs /root/whatever/twitter-stream-retweet/run-bot.js
 
 [Install]
 WantedBy=network-online.target
