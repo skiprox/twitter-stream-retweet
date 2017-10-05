@@ -1,45 +1,23 @@
 'use strict';
 
-var eatShitBot = require('./src/eat-shit-bot/eat-shit-bot');
+var bot = require('./src/twitter-stream-retweet/index');
 
-var App = (function() {
-
-	var Bot;
-	var phrase = 'Eat shit';
-
-	var initialize = function() {
-		Bot = new eatShitBot();
-	};
-
-	var stream = function() {
-		Bot.getStream(phrase);
-	};
-
-	var get = function() {
-		Bot.getTweets(phrase, 5);
-	};
-
-	var streamAndRetweet = function() {
-		Bot.streamAndRetweet(phrase);
-	};
-
-	return {
-		init: function() {
-			initialize();
-		},
-		stream: function() {
-			stream();
-		},
-		get: function() {
-			get();
-		},
-		streamAndRetweet: function() {
-			streamAndRetweet();
-		}
+class App {
+	constructor(word, phrases) {
+		this.bot = new bot(word, phrases);
 	}
+	stream() {
+		this.bot.getStream();
+	}
+	get(limit) {
+		// Need to figure out how to do this with the phrases as well
+		// as the word to look for
+		// this.bot.getTweets(limit);
+	}
+	streamAndRetweet() {
+		this.bot.streamAndRetweet();
+	}
+}
 
-}());
-
-App.init();
-App.streamAndRetweet();
-//App.get();
+const app = new App('left', ['she left me', 'he left me', 'they left me', 'you left me']);
+app.stream();
