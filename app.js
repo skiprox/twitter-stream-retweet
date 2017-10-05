@@ -19,5 +19,4 @@ class App {
 	}
 }
 
-const app = new App('left', ['she left me', 'he left me', 'they left me', 'you left me']);
-app.stream();
+module.exports = App;
