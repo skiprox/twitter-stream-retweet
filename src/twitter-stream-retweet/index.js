@@ -7,11 +7,11 @@ var credentials = require('./../../credentials');
 /**
  * EatShitBot constructor description
  *
- * @class EatShitBot
- * @classdesc EatShitBot class description
+ * @class TwitterStreamRetweet
+ * @classdesc TwitterStreamRetweet class A bot to stream and retweet stuff
  *
- * @param {object} options - Instance instantiation object
- * @param {string} options.example - Example options property
+ * @param {string} word - A single string, comma separated, list of words to track
+ * @param {array} phrases - Single strings to look for (since twitter stream doesn't check for words being grouped together)
  */
 class TwitterStreamRetweet {
 	constructor(word, phrases) {
@@ -42,7 +42,7 @@ class TwitterStreamRetweet {
 			track: this.word
 		});
 		this.stream.on('tweet', (tweet) => {
-			this.filterTweet(tweet, this.retweet);
+			this.filterTweet(tweet, this.retweet.bind(this));
 		})
 
 	}
@@ -57,8 +57,6 @@ class TwitterStreamRetweet {
 		this.bot.post('statuses/retweet/' + tweet['id_str'], (error, tweet, response) => {
 			if (!error) {
 				this.logTweet(tweet);
-			} else {
-				console.log('Error: ', error);
 			}
 		});
 	}

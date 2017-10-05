@@ -1,7 +1,7 @@
 # eat-shit-bot
 > Lmao
 
-This is a twitter bot to retweet people who use a certain phrase. Currently, that phrase is "eat shit".
+This is a twitter bot to retweet people who use a certain phrase. Currently, that phrase is some variation of "applying to grad school".
 
 ### How it works
 
@@ -9,14 +9,14 @@ To run, you need to create a `credentials.js` file, similar to the `credentials.
 
 
 ```
-$ node app.js
+$ npm run bot
 ```
 
 and your twitter bot should run.
 
 ### In the wild
 
-[Check it out on Twitter](https://twitter.com/chug_soylent)
+[Check it out on Twitter](https://twitter.com/gradschoolbot)
 
 
 ### On a server

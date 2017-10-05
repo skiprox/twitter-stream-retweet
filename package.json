@@ -1,13 +1,11 @@
 {
-  "name": "@kettle/eat-shit-bot",
+  "name": "twitter-stream-retweet",
   "version": "1.0.0",
   "description": "",
-  "author": "",
-  "main": "src/eat-shit-bot/eat-shit-bot.js",
-  "bin": {
-    "eat-shit-bot": "bin/eat-shit-bot.js"
-  },
+  "author": "skiprox",
+  "main": "src/twitter-stream-retweet/index.js",
   "scripts": {
+    "bot": "node run-bot.js",
     "test": "node test/index.js"
   },
   "dependencies": {
@@ -18,13 +16,13 @@
   "devDependencies": {
   },
   "bugs": {
-    "url": "https://github.com/kettle/eat-shit-bot/issues"
+    "url": "https://github.com/skiprox/twitter-stream-retweet/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kettle/eat-shit-bot"
+    "url": "https://github.com/skiprox/twitter-stream-retweet"
   },
-  "homepage": "https://github.com/kettle/eat-shit-bot",
+  "homepage": "https://github.com/skiprox/twitter-stream-retweet",
   "contributors": [
     ""
   ],
